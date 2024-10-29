@@ -2,7 +2,7 @@ public class Utility extends Property {
     private int multiplierOneUtility;  // Multiplicateur pour un seul service public
     private int multiplierTwoUtilities; // Multiplicateur pour deux services publics
 
-    // Constructeur
+
     public Utility(String name, int price, int baseRent, int multiplierOneUtility, int multiplierTwoUtilities) {
         super(name, price, baseRent);
         this.multiplierOneUtility = multiplierOneUtility;

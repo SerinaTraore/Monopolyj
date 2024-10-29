@@ -1,3 +1,5 @@
+import java.util.stream.IntStream;
+
 public class Terrain extends Property {
     private int houses;      // Nombre de maisons (0 à 4)
     private boolean hotel;   // Indique s'il y a un hôtel
@@ -48,11 +50,11 @@ public class Terrain extends Property {
                 .filter(p -> p instanceof Terrain && ((Terrain) p).getGroup().equals(this.group))
                 .count();
 
-        // Supposons que chaque groupe ait 3 terrains (par exemple), ajustez selon le jeu réel
-        return numberOfPropertiesInGroup == 3;  // On considère qu'un groupe a 3 propriétés
+        // Supposons que chaque groupe ait 3 terrains
+        return numberOfPropertiesInGroup == 3;
     }
 
-    // Calcul du loyer pour un terrain
+
     @Override
     public int calculateRent() {
         if (this.isMortgaged()) {
@@ -62,7 +64,7 @@ public class Terrain extends Property {
         if (hotel) {
             return hotelRent;  // Si un hôtel est construit, utiliser le loyer de l'hôtel
         } else if (houses > 0) {
-            return houseRent[houses - 1];  // Loyer en fonction du nombre de maisons
+            return IntStream.of(houseRent).sum(); ///houseRent[houses - 1];  // Loyer en fonction du nombre de maisons
         } else {
             // Si le joueur a un monopole et pas de maison ni hôtel, loyer de base doublé
             return hasMonopoly() ? super.calculateRent() * 2 : super.calculateRent();

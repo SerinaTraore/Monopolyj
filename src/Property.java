@@ -2,11 +2,11 @@ public class Property {
     private String name;
     private int price;
     private int baseRent;
-    private Player owner;        // Propriétaire actuel
-    private boolean mortgaged;   // Indique si la propriété est hypothéquée
-    private boolean isForSale;   // Indique si la propriété est à vendre
-    private boolean isRented;    // Indique si la propriété est louée
-    private Player currentRenter; // Le joueur qui loue actuellement la propriété
+    private Player owner;
+    private boolean mortgaged;
+    private boolean isForSale;
+    private boolean isRented;
+    private Player currentRenter;
 
     // Constructeur
     public Property(String name, int price, int baseRent) {
@@ -15,7 +15,7 @@ public class Property {
         this.baseRent = baseRent;
         this.owner = null;      // Par défaut, la propriété n'a pas de propriétaire
         this.mortgaged = false; // Par défaut, la propriété n'est pas hypothéquée
-        this.isForSale = false; // Par défaut, la propriété n'est pas en vente
+        this.isForSale = true; // Par défaut, la propriété n'est pas en vente
         this.isRented = false;  // Par défaut, la propriété n'est pas louée
         this.currentRenter = null; // Par défaut, la propriété n'a pas de locataire
     }
