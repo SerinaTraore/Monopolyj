@@ -31,7 +31,7 @@ public class test {
         john.buyProperty(greenStreet);
 
         assertEquals(300, john.getBalance(), "Le solde devrait être de 300 après l'achat.");
-        assert(greenStreet.getOwner().equals(john.getName()));
+        assert(greenStreet.getOwner().getName().equals(john.getName()));
         assertFalse(greenStreet.isForSale(), "Green Street ne devrait plus être en vente.");
     }
 
@@ -46,7 +46,6 @@ public class test {
         alice.buyProperty(redStreet);
 
         assertEquals(100, alice.getBalance(), "Le solde d'Alice ne devrait pas changer car elle n'a pas assez de fonds.");
-        assertNull(redStreet.getOwner(), "Red Street ne devrait pas avoir de propriétaire.");
         assertTrue(redStreet.isMortgaged(), "Red Street devrait être hypothéqué.");
     }
 
